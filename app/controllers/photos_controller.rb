@@ -36,8 +36,8 @@ class PhotosController < ApplicationController
     redirect_to root_path
   end
 
-  private
   def photo_params
-    params.require(:photo).permit(:title, :date, :descriprion, :file_location)
+    params.require(:photo).permit(:title, :date, :description, :file_location)
   end
+  
 end
