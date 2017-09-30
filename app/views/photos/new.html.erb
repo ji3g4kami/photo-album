@@ -1,3 +1,10 @@
+<% if @photo.errors.any? %>
+  <ul>
+    <% @photo.errors.each do |error, message| %>
+    <li><%= "#{error.capitalize} #{message}" %></li>
+    <% end %>
+  </ul>
+<% end %>
 <%= form_for @photo, :url => photos_path do |f| %>
   <%= f.label :title, "Title" %>
   <%= f.text_field :title %>
