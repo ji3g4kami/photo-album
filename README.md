@@ -1,24 +1,8 @@
-# README
+This is a photo album that you can upload your picture
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Thing learned in this project:
+* gem 'carrierwave' is great for uploading images
+* using partial do write DRY code
+* install bootstrap with gem
+* bootstrap styling: flash messages and table
+* css in Rails structure => edit css in application.scss
