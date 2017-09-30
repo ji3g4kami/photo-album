@@ -1,12 +1,14 @@
-<ul>
+<div class="container text-center">
+<h1>美景相冊</h1>
+<table class="table table table-hover table-responsive">
   <% @photos.each do |photo| %>
-    <li>
-      <%= photo.title %>
-      <%= link_to 'Show', photo_path(photo) %>
-      <%= link_to 'Edit', edit_photo_path(photo) %>
-      <%= link_to 'Destroy', photo_path(photo), method: :delete, data:{ confirm: "Are you sure?" } %>
-    </li>
+    <tr>
+      <td id="image-title" class="text-left"><%= image_tag photo.file_location.url, size: "20", class: "img-rounded" %><span>   </span><%= link_to photo.title, photo_path(photo) %></td>
+      <td id="image-title-action" class="text-right"><%= link_to 'Edit', edit_photo_path(photo), class: "btn btn-xs btn-primary"%>
+          <%= link_to 'Destroy', photo_path(photo), class: "btn btn-xs btn-danger", method: :delete, data:{ confirm: "Are you sure?" } %></td>
+    </tr>
   <% end %>
- </ul>
+</table>
  
- <%= link_to 'New Photo', new_photo_path %>
+ <%= link_to 'New Photo', new_photo_path, class: "btn btn-md btn-primary" %>
+</div>

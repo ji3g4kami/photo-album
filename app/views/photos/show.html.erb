@@ -1,6 +1,19 @@
-<%= @photo.title %>
-<%= @photo.date %>
-<%= image_tag @photo.file_location.url %>
-<%= simple_format(@photo.description) %>
-
-<%= link_to "Back to index", photos_path %>
+<div class="text-center">
+  <h2><%= @photo.title %></h2>
+  <div class="form-group">
+    <div class="control-label">
+      <h6 class="center">Date: <%= @photo.date %></h6>
+    </div>
+    <div>
+      <%= image_tag @photo.file_location.url, size: "500", class: "img-thumbnail" %>
+    </div>
+    <div>
+      <%= simple_format(@photo.description) %>
+    </div>
+  </div>
+  <%= link_to "Back to index", photos_path, class: "btn btn-xs btn-primary" %>
+  <%= link_to "Edit", edit_photo_path(@photo), class: "btn btn-xs btn-primary" %>
+  <%= link_to "Delete", photo_path(@photo), method: :delete,
+  data: { confirm: "Are you sure you want to delete"},
+   class: "btn btn-xs btn-danger" %>
+</div>

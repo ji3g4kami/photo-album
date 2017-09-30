@@ -1,22 +1,44 @@
-<% if @photo.errors.any? %>
-<ul>
-  <% @photo.errors.each do |error, message| %>
-  <li><%= "#{error.capitalize} #{message}" %></li>
-  <% end %>
-</ul>
-<% end %>
-<%= form_for @photo do |f| %>
-<%= f.label :title, "Title" %>
-<%= f.text_field :title %>
-
-<%= f.label :date, "Date" %>
-<%= f.text_field :date %>
-
-<%= f.label :description, "Description" %>
-<%= f.text_area :description %>
-
-<%= f.label :file_location, "File Location" %>
-<%= f.file_field :file_location %>
-
-<%= f.submit %>
-<% end %>
+<div class="form container">
+  <h1 class="text-center">New Photo</h1>
+  <%= render 'error' %>
+  <div class="row">
+    <%= form_for @photo do |f| %>
+    <div class="form-group col-md-12">
+      <div class="control-label col-md-offset-2 col-md-2 text-right">
+        <%= f.label :title %>
+      </div>
+      <div class="col-md-6">
+        <%= f.text_field :title, class: "form-control" %>
+      </div>  
+    </div>
+    <div class="form-group col-md-12">
+      <div class="control-label col-md-offset-2 col-md-2 text-right">
+        <%= f.label :date, "Date" %>
+      </div>
+      <div class="col-md-6">
+        <%= f.text_field :date, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group col-md-12">
+      <div class="control-label col-md-offset-2 col-md-2 text-right">
+        <%= f.label :description, "Description" %>
+      </div>
+      <div class="col-md-6">
+        <%= f.text_area :description, rows: 4, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group col-md-12">
+      <div class="control-label col-md-offset-2 col-md-2 text-right">
+        <%= f.label :file_location, "File Location" %>
+      </div>
+      <div class="col-md-6">
+        <%= f.file_field :file_location %>
+      </div>
+    </div>
+    <div class="text-center">
+      <%= link_to "Back to index", photos_path, class: "btn btn-md btn-primary" %>
+      <%= f.submit class: "btn btn-md btn-primary" %>
+  </div>
+    <% end %>
+  </div>
+</div>

@@ -12,6 +12,7 @@ class PhotosController < ApplicationController
   def create
     @photo = Photo.new(photo_params)
     if @photo.save
+      flash[:success] = "Photo was successfully created"
       redirect_to photos_url
     else
       render :new
@@ -26,6 +27,7 @@ class PhotosController < ApplicationController
 
   def update
     if @photo.update_attributes(photo_params)  
+      flash[:success] = "Photo was successfully updated"
       redirect_to photo_path(@photo)
     else
       render :edit
@@ -34,6 +36,7 @@ class PhotosController < ApplicationController
 
   def destroy
     @photo.destroy
+    flash[:danger] = "Photo was successfully deleted"
     redirect_to root_path
   end
   private
