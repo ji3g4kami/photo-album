@@ -5,7 +5,7 @@
   <% end %>
 </ul>
 <% end %>
-<%= form_for @photo, :url => photos_path do |f| %>
+<%= form_for @photo do |f| %>
 <%= f.label :title, "Title" %>
 <%= f.text_field :title %>
 
